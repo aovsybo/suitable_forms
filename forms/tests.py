@@ -34,6 +34,31 @@ class FunctionalTests(APITestCase):
         correct = self.full_create_data["fields"]["name"]
         assert response == correct
 
+    def test_other_existing_form(self):
+        create_data = {
+            "fields": {
+                "name": "other_test_form",
+                "profile_name": "text",
+                "first_name": "text",
+                "second_name": "text",
+                "contact": "phone",
+                "register_date": "date",
+                "last_seen_date": "date",
+            }
+        }
+        self.create_form(create_data)
+        get_data = {
+                "profile_name": "boyzya",
+                "first_name": "Lex",
+                "second_name": "Loster",
+                "contact": "+7 912 412 54 12",
+                "register_date": "11.11.2023",
+                "last_seen_date": "2023-11-17",
+            }
+        response = self.get_form(get_data)
+        correct = create_data["fields"]["name"]
+        assert response == correct
+
     def test_non_existing_form(self):
         # Получение формы, не существующей в базе
         non_existing_data = {
