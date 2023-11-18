@@ -38,7 +38,7 @@ docker exec -it <хеш> bash
 ```
 python manage.py test
 ```
-В случае успешного выполнения тестов будет выведено сообщение "OK"
+В случае успешного выполнения тестов будет выведено сообщение "OK" <br/>
 ![image](https://github.com/aovsybo/suitable_forms/assets/66824112/7a53ff05-f087-4d69-8e17-1c57c1fc6b58)
 
 # Пример работы
