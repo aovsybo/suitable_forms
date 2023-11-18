@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env
+  web:
+    image: web:latest
+    container_name: web
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    build: .
